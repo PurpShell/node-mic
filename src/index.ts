@@ -137,6 +137,9 @@ export default class Mic {
             '--endian', this._endian,
             '-'
         ];
+        if (this._device) {
+            options.push('-t', "coreaudio " + this._device);
+        }
         this._audioProcess = spawn(rec, options, this._audioProcessOptions);
     }
 
